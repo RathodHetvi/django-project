@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>about</h1>
+    <h3>{{ title|capfirst|title}}</h3>
+    <p>this is a templetes</p>
+    {{my_html|striptags|slugify}}<br>
+    {{my_html|safe}}
+
+    <p>
+       ,{{ my_number }}
+        {{my_list}}
+    </p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+    <ul>
+        {% for abc in my_list %}
+            {% if abc == 312 %}
+                <li>{{ forloop.counter }}-{{abc|add:22}}</li>
+            {% elif abc == "Abc" %}
+                <li>This is not network</li>  
+            {% else %}
+                <li>{{ forloop.counter }}-{{abc}}</li>
+            {% endif %}
+            
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
